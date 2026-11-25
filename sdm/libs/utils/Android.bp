@@ -1,0 +1,20 @@
+// PenguinOS (Android 17): converted from Android.mk so Soong blobs can depend on it.
+// Template: LineageOS android_hardware_qcom_display lineage-24.0-caf-sm8150.
+cc_library_shared {
+    name: "libsdmutils",
+    defaults: ["display_defaults"],
+    vendor: true,
+    header_libs: ["display_headers"],
+    cflags: [
+        "-Wno-implicit-float-conversion",
+        "-DLOG_TAG=\"SDM\"",
+    ],
+    srcs: [
+        "debug.cpp",
+        "rect.cpp",
+        "sys.cpp",
+        "formats.cpp",
+        "utils.cpp",
+    ],
+    shared_libs: ["libdisplaydebug"],
+}
