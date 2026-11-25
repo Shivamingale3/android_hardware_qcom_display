@@ -1,0 +1,11 @@
+// PenguinOS (Android 17) on the 855 display HAL: vendor/qcom/common/vendor/display/5.15 (imported by
+// the QTI perf namespace, so it can't be hidden) depends on a root-visible libsdedrm, which only
+// newer display HALs build from source (sde-drm/). This link-only stub satisfies that analysis-time
+// dependency. It is NOT installable: on miatoll (4.14) the real libsdedrm from
+// vendor/qcom/common/vendor/display/4.14 is the one installed and linked.
+cc_library_shared {
+    name: "libsdedrm",
+    vendor: true,
+    installable: false,
+    srcs: [],
+}
