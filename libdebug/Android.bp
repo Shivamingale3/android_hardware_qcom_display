@@ -1,0 +1,15 @@
+// PenguinOS (Android 17): converted from libdebug/Android.mk (same flags) so Soong modules
+// (e.g. vendor/qcom/common display blobs) can depend on libdisplaydebug. Matches AOSPA vauxite-8550.
+cc_library_shared {
+    name: "libdisplaydebug",
+    vendor: true,
+    shared_libs: ["libdl"],
+    cflags: [
+        "-DLOG_TAG=\"SDM\"",
+        "-Wall",
+        "-Werror",
+        "-fno-operator-names",
+    ],
+    export_include_dirs: ["."],
+    srcs: ["debug_handler.cpp"],
+}
