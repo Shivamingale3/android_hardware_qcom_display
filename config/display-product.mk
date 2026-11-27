@@ -114,8 +114,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
     vendor.display.disable_excl_rect=0 \
     vendor.display.disable_excl_rect_partial_fb=1 \
     vendor.display.comp_mask=0 \
-    vendor.display.enable_default_color_mode=1 \
-    vendor.display.enable_optimize_refresh=1 \
+    vendor.display.enable_default_color_mode?=1 \
+    vendor.display.enable_optimize_refresh?=1 \
     vendor.display.disable_ui_3d_tonemap=1 \
     debug.sf.predict_hwc_composition_strategy=0
 
@@ -141,11 +141,11 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.max_virtual_display_dim
 ifneq (,$(filter userdebug eng, $(TARGET_BUILD_VARIANT)))
 # Recovery is enabled, logging is enabled
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.display.disable_hw_recovery_dump=0
+    vendor.display.disable_hw_recovery_dump?=0
 else
 # Recovery is enabled, logging is disabled
 PRODUCT_PROPERTY_OVERRIDES += \
-    vendor.display.disable_hw_recovery_dump=1
+    vendor.display.disable_hw_recovery_dump?=1
 endif
 
 # Properties using default value:
